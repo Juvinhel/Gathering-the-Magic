@@ -66,6 +66,11 @@
 
         <UniformGrid Grid.Row="2" Rows="1">
             <Button
+                x:Name="openReleaseNotesButton"
+                Click="openReleaseNotesButton_Click"
+                Content="Open Release Notes"
+                Visibility="Hidden" />
+            <Button
                 x:Name="closeButton"
                 Click="closeButton_Click"
                 Content="Start App"

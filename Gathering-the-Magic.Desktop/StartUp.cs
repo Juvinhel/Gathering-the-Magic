@@ -19,6 +19,8 @@ namespace Gathering_the_Magic.DeckEdit
             {
                 WebFolderPath = Path.MakeRooted(Path.Combine(Program.MyFolderPath, "web"));
                 Directory.Create(WebFolderPath);
+                VersionFilePath = Path.Combine(WebFolderPath, "version.txt");
+                ReleaseNotesFilePath = Path.Combine(WebFolderPath, "release-notes.txt");
 
                 Config.Load();
 
@@ -36,6 +38,8 @@ namespace Gathering_the_Magic.DeckEdit
         }
 
         static public string WebFolderPath;
+        static public string VersionFilePath;
+        static public string ReleaseNotesFilePath;
         static public Url WebUrl = "https://juvinhel.github.io/Gathering-the-Magic";
     }
 }
