@@ -4,7 +4,7 @@ namespace Views.Repository
     {
         return <div class="repository">
             <Search.SearchElement />
-            <List />
+            <List.CardListElement />
         </div>;
     }
 }

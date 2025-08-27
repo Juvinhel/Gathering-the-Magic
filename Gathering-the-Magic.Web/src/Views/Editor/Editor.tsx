@@ -64,7 +64,19 @@ namespace Views.Editor
             unsavedProgress.classList.toggle("none", false);
         }
 
-        return <div class="editor" onsizechanged={ sizeChanged } oncardselected={ cardSelected } oncardhovered={ cardHovered } ondeckchanged={ deckChanged }>
+        return <div class="editor" onsizechanged={ sizeChanged } oncardselected={ cardSelected } oncardhovered={ cardHovered } ondeckchanged={ deckChanged }
+            oncardsearchstarted={ (event: Event) =>
+            {
+                const editor = event.currentTarget as HTMLElement;
+                const searchRunning = editor.querySelector(".search-running") as HTMLElement;
+                searchRunning.classList.toggle("none", false);
+            } }
+            oncardsearchfinished={ (event: Event) =>
+            {
+                const editor = event.currentTarget as HTMLElement;
+                const searchRunning = editor.querySelector(".search-running") as HTMLElement;
+                searchRunning.classList.toggle("none", true);
+            } }>
             <Menu />
             <Repository.Repository />
             <Info.CardInfo />

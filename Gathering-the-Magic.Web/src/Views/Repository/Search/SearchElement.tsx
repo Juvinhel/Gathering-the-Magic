@@ -89,7 +89,7 @@ namespace Views.Repository.Search
         private async doSearch()
         {
             const repository = this.closest(".repository") as HTMLElement;
-            const list = repository.querySelector(".list") as HTMLElement;
+            const list = repository.querySelector("my-card-list") as List.CardListElement;
             try
             {
                 const queryInput = this.querySelector(".query-input") as HTMLInputElement;
@@ -149,11 +149,11 @@ namespace Views.Repository.Search
                 else if (collection)
                     cards = Data.API.getCards(Object.keys(collection.cards).map(c => { return { name: c }; }));
 
-                list["showItems"](cards);
+                list.showItems(cards);
             }
             catch (error)
             {
-                list["showItems"](null);
+                list.showItems(null);
                 UI.Dialog.error(error);
             }
         }
