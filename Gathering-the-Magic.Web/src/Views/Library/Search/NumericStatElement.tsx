@@ -1,4 +1,4 @@
-namespace Views.Repository.Search
+namespace Views.Library.Search
 {
     export const NumericStatOperators = ["=", ">", ">=", "<", "<=", "!="] as const;
     export type NumericStatOperator = typeof NumericStatOperators[number];

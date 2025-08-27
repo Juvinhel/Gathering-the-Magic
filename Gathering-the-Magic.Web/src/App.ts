@@ -25,27 +25,15 @@ class App
         });
 
         document.addEventListener('visibilitychange', App.visibilityChange);
+        const lastDeck = localStorage.get("last-deck") ?? App.sampleDeck;
 
-        let hash = window.location.hash;
-        const ui = hash?.trimLeft("#").toLocaleLowerCase() || "editor";
+        await UI.Navigator.navigate("main", () => new Views.Editor.EditorElement());
 
-        switch (ui)
-        {
-            case "editor":
-                const lastDeck = localStorage.get("last-deck") ?? App.sampleDeck;
+        const workbench = document.querySelector("my-workbench") as Views.Workbench.WorkbenchElement;
+        await workbench.loadData(await Data.File.loadDeck(JSON.stringify(lastDeck), "JSON"));
 
-                await UI.Navigator.navigate("main", Views.Editor.Editor);
-
-                const workbench = document.querySelector("my-workbench") as Views.Workbench.WorkbenchElement;
-                await workbench.loadData(await Data.File.loadDeck(JSON.stringify(lastDeck), "JSON"));
-
-                const unsavedProgress = document.body.querySelector(".unsaved-progress") as HTMLElement;
-                unsavedProgress.classList.toggle("none", true);
-                break;
-            default:
-                UI.Dialog.error({ title: "Unknown ui module!", text: `UI Module: '${ui}' is unknown!` });
-                break;
-        }
+        const unsavedProgress = document.body.querySelector(".unsaved-progress") as HTMLElement;
+        unsavedProgress.classList.toggle("none", true);
     }
 
     private static visibilityChange = function (this: typeof App, event: Event)
@@ -54,7 +42,7 @@ class App
         {
             localStorage.set("collections", App.collections);
 
-            const editor = document.querySelector(".editor") as HTMLElement;
+            const editor = document.querySelector("my-editor") as Views.Editor.EditorElement;
             const workbench = editor.querySelector("my-workbench") as Views.Workbench.WorkbenchElement;
             const deck: Data.Deck = workbench.getData();
 

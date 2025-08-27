@@ -1,4 +1,4 @@
-namespace Views.Repository.List
+namespace Views.Library.List
 {
     export class CardListElement extends HTMLElement
     {
@@ -64,8 +64,8 @@ namespace Views.Repository.List
 
         private childrenChanged(event: UI.Events.ChildrenChangedEvent)
         {
-            const editor = this.closest(".editor");
-            const workbench = editor.querySelector("my-workbench") as Views.Workbench.WorkbenchElement;
+            const editor = this.closest("my-editor") as Editor.EditorElement;
+            const workbench = editor.querySelector("my-workbench") as Workbench.WorkbenchElement;
             const deck = workbench.getData();
             const entries = Data.getEntries(deck);
 

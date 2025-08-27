@@ -1,4 +1,4 @@
-namespace Views.Repository.List
+namespace Views.Library.List
 {
     export class PagingElement extends HTMLElement
     {

@@ -49,7 +49,7 @@ namespace Views.Editor
         try
         {
             const target = event.currentTarget as HTMLElement;
-            const editor = target.closest(".editor");
+            const editor = target.closest("my-editor") as Editor.EditorElement;
             const workbench = editor.querySelector("my-workbench") as Workbench.WorkbenchElement;
 
             const result = await UI.Dialog.confirm({ title: "Create new Deck?", text: "Create a new Deck?\nAll unsaved progress will be lost!" });
@@ -71,7 +71,7 @@ namespace Views.Editor
         try
         {
             const target = event.currentTarget as HTMLElement;
-            const editor = target.closest(".editor");
+            const editor = target.closest("my-editor") as Editor.EditorElement;
             const workbench = editor.querySelector("my-workbench") as Workbench.WorkbenchElement;
 
             const deck = workbench.getData();
@@ -92,7 +92,7 @@ namespace Views.Editor
         try
         {
             const target = event.currentTarget as HTMLElement;
-            const editor = target.closest(".editor");
+            const editor = target.closest("my-editor") as Editor.EditorElement;
             const workbench = editor.querySelector("my-workbench") as Workbench.WorkbenchElement;
 
             const deck = await Data.SaveLoad.LoadDeck();
@@ -127,7 +127,7 @@ namespace Views.Editor
     async function sortCards(event: Event)
     {
         const target = event.currentTarget as HTMLElement;
-        const editor = target.closest(".editor") as HTMLElement;
+        const editor = target.closest("my-editor") as Editor.EditorElement;
         const workbench = editor.querySelector("my-workbench") as Workbench.WorkbenchElement;
 
         const option = await UI.Dialog.options({ title: "Sort Cards by ...", options: ["Name", "Mana Value"], allowEmpty: true });
@@ -164,7 +164,7 @@ namespace Views.Editor
     async function showMissingCards(event: Event)
     {
         const target = event.currentTarget as HTMLElement;
-        const editor = target.closest(".editor") as HTMLElement;
+        const editor = target.closest("my-editor") as Editor.EditorElement;
         const workbench = editor.querySelector("my-workbench") as Workbench.WorkbenchElement;
 
         target.classList.toggle("marked", false);
@@ -205,7 +205,7 @@ namespace Views.Editor
     async function showDeckList(event: Event)
     {
         const target = event.currentTarget as HTMLElement;
-        const editor = target.closest(".editor") as HTMLElement;
+        const editor = target.closest("my-editor") as Editor.EditorElement;
         const workbench = editor.querySelector("my-workbench") as Workbench.WorkbenchElement;
 
         const deck = workbench.getData();
@@ -218,7 +218,7 @@ namespace Views.Editor
     async function showMana(event: Event)
     {
         const target = event.currentTarget as HTMLElement;
-        const editor = target.closest(".editor") as HTMLElement;
+        const editor = target.closest("my-editor") as Editor.EditorElement;
         const workbench = editor.querySelector("my-workbench") as Workbench.WorkbenchElement;
 
         App.config.showMana = !App.config.showMana;
@@ -231,7 +231,7 @@ namespace Views.Editor
     async function showType(event: Event)
     {
         const target = event.currentTarget as HTMLElement;
-        const editor = target.closest(".editor") as HTMLElement;
+        const editor = target.closest("my-editor") as Editor.EditorElement;
         const workbench = editor.querySelector("my-workbench") as Workbench.WorkbenchElement;
 
         App.config.showType = !App.config.showType;
@@ -244,7 +244,7 @@ namespace Views.Editor
     async function showDrawTest(event: Event)
     {
         const target = event.currentTarget as HTMLElement;
-        const editor = target.closest(".editor") as HTMLElement;
+        const editor = target.closest("my-editor") as Editor.EditorElement;
         const workbench = editor.querySelector("my-workbench") as Workbench.WorkbenchElement;
 
         const deck = workbench.getData();
@@ -255,7 +255,7 @@ namespace Views.Editor
     async function showDeckStatistics(event: Event)
     {
         const target = event.currentTarget as HTMLElement;
-        const editor = target.closest(".editor") as HTMLElement;
+        const editor = target.closest("my-editor") as Editor.EditorElement;
         const workbench = editor.querySelector("my-workbench") as Workbench.WorkbenchElement;
 
         const deck = workbench.getData();

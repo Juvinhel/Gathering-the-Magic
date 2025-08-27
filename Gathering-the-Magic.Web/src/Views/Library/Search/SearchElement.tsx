@@ -1,4 +1,4 @@
-namespace Views.Repository.Search
+namespace Views.Library.Search
 {
     export class SearchElement extends HTMLElement
     {
@@ -88,7 +88,7 @@ namespace Views.Repository.Search
 
         private async doSearch()
         {
-            const repository = this.closest(".repository") as HTMLElement;
+            const repository = this.closest("my-library") as LibraryElement;
             const list = repository.querySelector("my-card-list") as List.CardListElement;
             try
             {

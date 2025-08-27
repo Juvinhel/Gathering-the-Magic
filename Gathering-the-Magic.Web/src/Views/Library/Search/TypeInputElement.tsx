@@ -1,4 +1,4 @@
-namespace Views.Repository.Search
+namespace Views.Library.Search
 {
     export class TypeInputElement extends HTMLElement
     {

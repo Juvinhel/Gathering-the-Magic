@@ -1,4 +1,4 @@
-namespace Views.Repository.List
+namespace Views.Library.List
 {
     export class CardTileElement extends HTMLElement
     {
@@ -54,7 +54,7 @@ namespace Views.Repository.List
 
         private async showInsertCard(event: Event)
         {
-            const editor = this.closest(".editor") as HTMLElement;
+            const editor = this.closest("my-editor") as Editor.EditorElement;
             const workbench = editor.querySelector("my-workbench") as Workbench.WorkbenchElement;
             const sectionElements = [...workbench.querySelectorAll("my-section") as NodeListOf<Workbench.SectionElement>];
             const sectionTitles = sectionElements.map(x => Views.Workbench.getSectionPath(x));
@@ -85,7 +85,7 @@ namespace Views.Repository.List
 
         private addCard(event: MouseEvent)
         {
-            const editor = this.closest(".editor") as HTMLElement;
+            const editor = this.closest("my-editor") as Editor.EditorElement;
             const workbench = editor.querySelector("my-workbench") as Workbench.WorkbenchElement;
             if (workbench) workbench.addCards(this.card);
         }
