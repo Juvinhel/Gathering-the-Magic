@@ -221,7 +221,7 @@ namespace Views.Dialogs
                     hoverOffset: 4
                 }]
             };
-            return <canvas class="produced-mana" oninserted={ (event: Event) =>
+            return <canvas class="mana-consumption" oninserted={ (event: Event) =>
             {
                 const target = event.currentTarget as HTMLElement;
                 setTimeout(() =>
@@ -238,7 +238,7 @@ namespace Views.Dialogs
                                         bold: true
                                     },
                                     display: true,
-                                    text: "Produced Mana"
+                                    text: "Mana Consumption"
                                 }
                             }
                         }
