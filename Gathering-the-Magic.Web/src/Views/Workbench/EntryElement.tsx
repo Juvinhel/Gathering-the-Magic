@@ -39,8 +39,8 @@ namespace Views.Workbench
                     <a class="down-button" onclick={ this.moveDown.bind(this) }><color-icon src="img/icons/chevron-down.svg" /></a>
                 </div>,
                 <span class="name">{ this.card.name }</span>,
-                <span class="type">{ this.card.type.card }</span>,
-                <span class="mana" innerHTML={ parseSymbolText(this.card.manaCost) }></span>,
+                <span class="type">{ this.card.type.card.join(" ") }</span>,
+                <span class="mana" innerHTML={ parseSymbolText(this.card.manaCost) } />,
                 <div class="actions">
                     <a class="commander-button" onclick={ this.setAsCommander.bind(this) }><color-icon src="img/icons/helmet.svg" /></a>
                     <a class="delete-button" onclick={ this.delete.bind(this) }><color-icon src="img/icons/delete.svg" /></a>
