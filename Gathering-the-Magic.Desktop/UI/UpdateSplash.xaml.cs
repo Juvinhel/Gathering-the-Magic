@@ -139,7 +139,7 @@ namespace Gathering_the_Magic.DeckEdit.UI
         }
 
         private string githubUser = "Juvinhel";
-        private string githubRepo = "Gathering-the-Magic";
+        private string githubRepo = "Gathering-the-Magic.Web";
         private HttpClient githubClient;
 
         private void initGithub()
