@@ -191,7 +191,7 @@ namespace Gathering_the_Magic.DeckEdit.UI
             {
                 result = openCollectionFileDialog.SelectedFilePaths.ToList();
 
-                Config.Current.DecksFolderPath = Path.GetParentDirectory(openCollectionFileDialog.SelectedFilePaths.First());
+                Config.Current.CollectionsFolderPath = Path.GetParentDirectory(openCollectionFileDialog.SelectedFilePaths.First());
                 Config.Save();
             }
             webView.Visibility = Visibility.Visible;
