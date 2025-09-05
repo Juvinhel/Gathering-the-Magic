@@ -122,8 +122,8 @@ namespace Gathering_the_Magic.DeckEdit.UI
         };
         public string SaveDeck()
         {
-            if (!string.IsNullOrEmpty(Config.Current.DecksFolderPath))
-                saveFileDialog.InitialFolderPath = Config.Current.DecksFolderPath;
+            if (!string.IsNullOrEmpty(Config.Current.RepositoryFolderPath))
+                saveFileDialog.InitialFolderPath = Config.Current.RepositoryFolderPath;
 
             string result = null;
             webView.Visibility = Visibility.Hidden;
@@ -136,9 +136,6 @@ namespace Gathering_the_Magic.DeckEdit.UI
                 if (saveFileDialog.SelectedFilter.Name == "XML Deck" && !result.ToLower().EndsWithAny(".xml")) result += ".xml";
                 if (saveFileDialog.SelectedFilter.Name == "DEC Deck" && !result.ToLower().EndsWithAny(".dec")) result += ".dec";
                 if (saveFileDialog.SelectedFilter.Name == "TXT Deck" && !result.ToLower().EndsWithAny(".txt")) result += ".txt";
-
-                Config.Current.DecksFolderPath = Path.GetParentDirectory(saveFileDialog.SelectedFilePath);
-                Config.Save();
             }
             webView.Visibility = Visibility.Visible;
 
@@ -157,8 +154,8 @@ namespace Gathering_the_Magic.DeckEdit.UI
         };
         public string LoadDeck()
         {
-            if (!string.IsNullOrEmpty(Config.Current.DecksFolderPath))
-                openDeckFileDialog.InitialFolderPath = Config.Current.DecksFolderPath;
+            if (!string.IsNullOrEmpty(Config.Current.RepositoryFolderPath))
+                openDeckFileDialog.InitialFolderPath = Config.Current.RepositoryFolderPath;
 
             string result = default;
             webView.Visibility = Visibility.Hidden;
@@ -166,9 +163,6 @@ namespace Gathering_the_Magic.DeckEdit.UI
             {
                 string filePath = openDeckFileDialog.SelectedFilePath;
                 result = openDeckFileDialog.SelectedFilePath;
-
-                Config.Current.DecksFolderPath = Path.GetParentDirectory(openDeckFileDialog.SelectedFilePath);
-                Config.Save();
             }
             webView.Visibility = Visibility.Visible;
 
@@ -183,16 +177,13 @@ namespace Gathering_the_Magic.DeckEdit.UI
         };
         public IEnumerable<string> LoadCollections()
         {
-            if (!string.IsNullOrEmpty(Config.Current.CollectionsFolderPath))
-                openCollectionFileDialog.InitialFolderPath = Config.Current.CollectionsFolderPath;
+            if (!string.IsNullOrEmpty(Config.Current.RepositoryFolderPath))
+                openCollectionFileDialog.InitialFolderPath = Config.Current.RepositoryFolderPath;
             List<string> result = default;
             webView.Visibility = Visibility.Hidden;
             if (!string.IsNullOrEmpty(openCollectionFileDialog.ShowDialog()))
             {
                 result = openCollectionFileDialog.SelectedFilePaths.ToList();
-
-                Config.Current.CollectionsFolderPath = Path.GetParentDirectory(openCollectionFileDialog.SelectedFilePaths.First());
-                Config.Save();
             }
             webView.Visibility = Visibility.Visible;
 

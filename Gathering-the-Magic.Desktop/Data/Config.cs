@@ -26,9 +26,6 @@ namespace Gathering_the_Magic.DeckEdit.Data
 
         static public Config Current { get; private set; }
 
-        public string DecksFolderPath { get; set; }
-        public string CollectionsFolderPath { get; set; }
-
         public string RepositoryFolderPath { get; set; }    
     }
 }

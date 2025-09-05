@@ -34,6 +34,15 @@ namespace Gathering_the_Magic.DeckEdit.Data
             return filePaths.Select(filePath => new LoadResult(filePath)).ToArray();
         }
 
+        public LoadResult[] LoadDefaultCollections()
+        {
+            string collectionsFolderPath = Path.Combine(Config.Current.RepositoryFolderPath, "Collections");
+            if (!Directory.Exists(collectionsFolderPath)) return null;
+
+            IEnumerable<string> filePaths = Directory.GetFiles(collectionsFolderPath, "csv");
+            return filePaths.Select(filePath => new LoadResult(filePath)).ToArray();
+        }
+
         private string configFilePath = Path.Combine(Directory.Current, "web.config.user");
         public string LoadConfig()
         {
@@ -55,11 +64,13 @@ namespace Gathering_the_Magic.DeckEdit.Data
             filePath = _filePath;
             Name = Path.GetFileNameWithoutExtension(filePath);
             Type = Path.GetExtension(filePath).TrimStart(".");
+            Exists = File.Exists(filePath);
         }
 
         private string filePath;
-        public string Name { get; set; }
-        public string Type { get; set; }
+        public string Name { get; private set; }
+        public string Type { get; private set; }
+        public bool Exists { get; private set; }
 
         public void Save(string _text)
         {
@@ -76,11 +87,13 @@ namespace Gathering_the_Magic.DeckEdit.Data
             filePath = _filePath;
             Name = Path.GetFileNameWithoutExtension(filePath);
             Type = Path.GetExtension(filePath).TrimStart(".").ToLower();
+            LastModified = File.GetInfo(filePath).LastWriteTimeUtc.ToString("o");
         }
 
         private string filePath;
-        public string Name { get; set; }
-        public string Type { get; set; }
+        public string Name { get; private set; }
+        public string Type { get; private set; }
+        public string LastModified { get; private set; }
 
         public string Load()
         {
