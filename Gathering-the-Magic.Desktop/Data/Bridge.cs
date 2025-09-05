@@ -39,7 +39,7 @@ namespace Gathering_the_Magic.DeckEdit.Data
         {
             return File.Exists(configFilePath) ? File.ReadAllText(configFilePath) : null;
         }
-        
+
         public void SaveConfig(string _text)
         {
             File.WriteAllText(configFilePath, _text);
@@ -75,7 +75,7 @@ namespace Gathering_the_Magic.DeckEdit.Data
         {
             filePath = _filePath;
             Name = Path.GetFileNameWithoutExtension(filePath);
-            Type = Path.GetExtension(filePath).TrimStart(".");
+            Type = Path.GetExtension(filePath).TrimStart(".").ToLower();
         }
 
         private string filePath;

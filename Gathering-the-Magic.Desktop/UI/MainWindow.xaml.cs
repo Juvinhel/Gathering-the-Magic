@@ -198,5 +198,15 @@ namespace Gathering_the_Magic.DeckEdit.UI
 
             return result;
         }
+
+        private void openConfigButton_Click(object _sender, RoutedEventArgs _e)
+        {
+            webView.Visibility = Visibility.Hidden;
+
+            ConfigDialog configDialog = new ConfigDialog();
+            configDialog.ShowDialog();
+
+            webView.Visibility = Visibility.Visible;
+        }
     }
 }
