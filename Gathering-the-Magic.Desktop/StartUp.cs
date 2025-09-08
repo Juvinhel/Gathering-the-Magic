@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using CommandLine;
 using Gathering_the_Magic.DeckEdit.Data;
 using Lemon;
 
@@ -22,6 +23,10 @@ namespace Gathering_the_Magic.DeckEdit
                 VersionFilePath = Path.Combine(WebFolderPath, "version.txt");
                 ReleaseNotesFilePath = Path.Combine(WebFolderPath, "release-notes.txt");
 
+                Parser parser = new Parser(with => with.CaseInsensitiveEnumValues = true);
+                ParserResult<Arguments> result = parser.ParseArguments<Arguments>(_args);
+                UI = result.Value.UI;
+
                 Config.Load();
 
                 App app = new App();
@@ -37,9 +42,24 @@ namespace Gathering_the_Magic.DeckEdit
             }
         }
 
-        static public string WebFolderPath;
-        static public string VersionFilePath;
-        static public string ReleaseNotesFilePath;
-        static public Url WebUrl = "https://juvinhel.github.io/Gathering-the-Magic";
+        static public string WebFolderPath { get; private set; }
+        static public string VersionFilePath { get; private set; }
+        static public string ReleaseNotesFilePath { get; private set; }
+
+        static public UIMode? UI { get; set; }
+    }
+
+    [Verb("run", isDefault: true)]
+    sealed public class Arguments
+    {
+        [Option("ui", Required = false, Default = null, HelpText = "UI Mode.")]
+        public UIMode? UI { get; set; }
+    }
+
+    public enum UIMode
+    {
+        All,
+        Workbench,
+        Library
     }
 }

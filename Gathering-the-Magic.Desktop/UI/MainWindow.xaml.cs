@@ -32,6 +32,12 @@ namespace Gathering_the_Magic.DeckEdit.UI
 
             Delay.Start(10, () =>
             {
+                if(StartUp.UI == null)
+                {
+                    StartupDialog startupDialog = new StartupDialog();
+                    startupDialog.ShowDialog();
+                }
+
                 if (!Debugger.IsAttached)
                 {
                     UpdateSplash updateSplash = new UpdateSplash();
@@ -65,13 +71,28 @@ namespace Gathering_the_Magic.DeckEdit.UI
             webView.CoreWebView2.NewWindowRequested += coreWebView2_NewWindowRequested;
             webView.CoreWebView2.AddHostObjectToScript("bridge", new Bridge());
 
+            string page = "index.html";
+            switch (StartUp.UI)
+            {
+                case UIMode.All:
+                default:
+                    page = "index.html";
+                    break;
+                case UIMode.Workbench:
+                    page = "workbench.html";
+                    break;
+                case UIMode.Library:
+                    page = "library.html";
+                    break;
+            }
+
             if (Debugger.IsAttached)
-                webView.Source = new Uri("http://localhost:5414/index.html");
+                webView.Source = new Uri("http://localhost:5414/" + page);
             else
             {
                 webView.CoreWebView2.AddWebResourceRequestedFilter("*", CoreWebView2WebResourceContext.All, CoreWebView2WebResourceRequestSourceKinds.All);
                 webView.CoreWebView2.WebResourceRequested += coreWebView2_WebResourceRequested;
-                webView.Source = new Uri("https://web.example/index.html");
+                webView.Source = new Uri(virtualHost + "/" + page);
             }
         }
 
@@ -188,16 +209,6 @@ namespace Gathering_the_Magic.DeckEdit.UI
             webView.Visibility = Visibility.Visible;
 
             return result;
-        }
-
-        private void openConfigButton_Click(object _sender, RoutedEventArgs _e)
-        {
-            webView.Visibility = Visibility.Hidden;
-
-            ConfigDialog configDialog = new ConfigDialog();
-            configDialog.ShowDialog();
-
-            webView.Visibility = Visibility.Visible;
         }
     }
 }

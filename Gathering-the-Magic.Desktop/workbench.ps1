@@ -1,0 +1,1 @@
+& ".\Gathering-the-Magic.Desktop.exe" --ui workbench

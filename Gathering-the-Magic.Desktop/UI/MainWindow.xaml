@@ -13,8 +13,8 @@
     xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
     x:Name="mainWindow"
     Title="Gathering-the-Magic.DataUpdate"
-    Width="800"
-    Height="650"
+    Width="1160"
+    Height="780"
     GlowBrush="{StaticResource MahApps.Brushes.Accent}"
     Icon="Images/favicon.png"
     Loaded="mainWindow_Loaded"
@@ -46,21 +46,6 @@
     <mahapps:MetroWindow.RightWindowCommands>
         <mahapps:WindowCommands ShowLastSeparator="False" ShowSeparators="False">
             <celestial.components:ErrorWindowButton />
-            <Button
-                x:Name="openConfigButton"
-                MinWidth="46"
-                Click="openConfigButton_Click"
-                Style="{StaticResource MahApps.Styles.Button.MetroWindow.Dark}">
-                <Viewbox Margin="6" Stretch="Uniform">
-                    <Canvas Width="1200" Height="1200">
-                        <Path Fill="White">
-                            <Path.Data>
-                                <PathGeometry Figures="m1179 519c-6-42-42-75-84-78l-60-3c-3-12-9-21-12-30l42-45c30-33 30-81 6-114-33-45-72-84-117-117-15-12-36-18-54-18-21 0-42 9-60 24l-45 42c-9-6-21-9-30-12l-3-60c-3-42-36-78-78-84-27-3-54-6-81-6s-54 3-81 6c-42 6-75 42-78 84l-3 60c-12 3-21 9-30 12l-45-42c-18-15-39-24-60-24-18 0-39 6-54 18-45 33-84 72-117 117-27 36-24 84 6 114l42 45c-6 9-9 21-12 30l-60 3c-42 3-78 36-84 78-3 27-6 54-6 81s3 54 6 81c6 42 42 75 84 78l60 3c3 12 9 21 12 30l-42 45c-30 33-30 81-6 114 33 45 72 84 117 117 15 12 36 18 54 18 21 0 42-9 60-24l45-42c9 6 21 9 30 12l3 60c3 42 36 78 78 84 27 3 54 6 81 6s54-3 81-6c42-6 75-42 78-84l3-60c12-3 21-9 30-12l45 42c18 15 39 24 60 24 18 0 39-6 54-18 45-33 84-72 117-117 27-36 24-84-6-114l-42-45c6-9 9-21 12-30l60-3c42-3 78-36 84-78 3-27 6-54 6-81s-3-54-6-81zm-90 150-123 6c-9 48-30 93-54 132l84 93c-27 36-60 69-99 99l-93-84c-39 27-84 45-132 54l-6 123c-24 3-45 6-69 6s-48-3-69-6l-6-123c-48-9-93-30-132-54l-93 84c-36-27-69-60-99-99l84-93c-27-39-45-84-54-132l-123-6c-3-24-6-45-6-69s3-48 6-69l123-6c9-48 30-93 54-132l-84-93c27-36 60-69 99-99l93 84c39-27 84-45 132-54l6-123c24-3 45-6 69-6s48 3 69 6l6 123c48 9 93 30 132 54l93-84c36 27 69 60 99 99l-84 93c27 39 45 84 54 132l123 6c3 24 6 45 6 69s-3 45-6 69zm-492-294c-30 0-60 6-87 18-54 24-99 66-120 123-24 54-21 117 0 171 36 84 117 138 207 138 30 0 60-6 87-18 54-24 99-66 120-123 24-54 21-117 0-171-36-84-117-138-207-138zm51 348c-18 6-36 9-51 9-51 0-102-30-123-81-30-69 3-147 72-177 18-6 36-9 51-9 51 0 102 30 123 81 30 69-3 147-72 177z" FillRule="EvenOdd" />
-                            </Path.Data>
-                        </Path>
-                    </Canvas>
-                </Viewbox>
-            </Button>
         </mahapps:WindowCommands>
     </mahapps:MetroWindow.RightWindowCommands>
     <Grid x:Name="mainGrid">

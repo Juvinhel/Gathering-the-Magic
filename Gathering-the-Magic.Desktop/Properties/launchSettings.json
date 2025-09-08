@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "Default": {
+      "commandName": "Project"
+    },
+    "Workbench": {
+      "commandName": "Project",
+      "commandLineArgs": "--ui workbench"
+    },
+    "Library": {
+      "commandName": "Project",
+      "commandLineArgs": "--ui library"
+    }
+  }
+}
