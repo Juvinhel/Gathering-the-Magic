@@ -15,12 +15,49 @@
     Loaded="startupDialog_Loaded"
     mc:Ignorable="d">
     <Grid>
-        <Grid VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            x:Name="titleTextBlock"
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            FontSize="16"
+            FontWeight="Bold"
+            Text="Startup" />
+
+        <StackPanel
+            Grid.Row="1"
+            Margin="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+            <TextBlock
+                x:Name="oldVersionTextBlock"
+                HorizontalAlignment="Center"
+                Foreground="LightGray" />
+            <TextBlock
+                x:Name="newVersionTextBlock"
+                HorizontalAlignment="Center"
+                Foreground="LightGray" />
+
+            <TextBlock HorizontalAlignment="Center">
+                <Hyperlink x:Name="startUpdateHyperLink" Click="startUpdateHyperLink_Click">
+                    <TextBlock x:Name="startUpdateTextBlock" Text="Update App" />
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+
+        <Grid Grid.Row="2" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
+
             <celestial.components:InputFolderHeader
                 x:Name="repositoryFolderHeader"
                 Title="Repository Folder: "
@@ -30,7 +67,12 @@
                 SharedSizeGroup="A" />
         </Grid>
 
-        <UniformGrid VerticalAlignment="Bottom" Rows="1">
+        <UniformGrid
+            x:Name="startAppGrid"
+            Grid.Row="3"
+            VerticalAlignment="Bottom"
+            Rows="1"
+            Visibility="Hidden">
             <Button
                 x:Name="startAllButton"
                 Grid.Row="1000"

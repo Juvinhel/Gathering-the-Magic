@@ -15,16 +15,10 @@
     Loaded="updateSplash_Loaded"
     mc:Ignorable="d">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
         <StackPanel
-            Grid.Row="0"
             Margin="10"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center"
+            VerticalAlignment="Top"
             Orientation="Vertical">
             <TextBlock
                 x:Name="titleTextBlock"
@@ -42,39 +36,18 @@
                 Foreground="LightGray" />
         </StackPanel>
         <StackPanel
-            Grid.Row="1"
             Margin="10"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Center"
             Orientation="Vertical">
-            <Button
-                x:Name="beginUpdateButton"
-                Click="beginUpdateButton_Click"
-                Content="Begin Update"
-                Visibility="Collapsed" />
             <TextBlock
                 x:Name="progressTextBlock"
                 Margin="2"
-                HorizontalAlignment="Center"
-                Visibility="Collapsed" />
+                HorizontalAlignment="Center" />
             <mahapps:MetroProgressBar
                 x:Name="progressBar"
                 Height="24"
-                Foreground="{StaticResource MahApps.Brushes.Accent}"
-                Visibility="Collapsed" />
+                Foreground="{StaticResource MahApps.Brushes.Accent}" />
         </StackPanel>
-
-        <UniformGrid Grid.Row="2" Rows="1">
-            <Button
-                x:Name="openReleaseNotesButton"
-                Click="openReleaseNotesButton_Click"
-                Content="Open Release Notes"
-                Visibility="Hidden" />
-            <Button
-                x:Name="closeButton"
-                Click="closeButton_Click"
-                Content="Start App"
-                Visibility="Hidden" />
-        </UniformGrid>
     </Grid>
 </celestial.controls:AdornerDialog>

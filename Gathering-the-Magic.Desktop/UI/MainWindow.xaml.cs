@@ -35,16 +35,8 @@ namespace Gathering_the_Magic.DeckEdit.UI
                 if(StartUp.UI == null)
                 {
                     StartupDialog startupDialog = new StartupDialog();
-                    startupDialog.ShowDialog();
+                    startupDialog.Show();
                 }
-
-                if (!Debugger.IsAttached)
-                {
-                    UpdateSplash updateSplash = new UpdateSplash();
-                    updateSplash.ShowDialog();
-                }
-
-                initWebView();
             });
         }
 
@@ -56,6 +48,11 @@ namespace Gathering_the_Magic.DeckEdit.UI
             openFileTextBlock = titleBar.FindChild<TextBlock>(x => x.Name == "openFileTextBlock");
         }
         #endregion
+
+        public void Start()
+        {
+            initWebView();
+        }
 
         private CoreWebView2Environment cwv2Environment;
         private async Task initWebView()
