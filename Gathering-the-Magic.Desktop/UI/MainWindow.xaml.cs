@@ -133,9 +133,9 @@ namespace Gathering_the_Magic.DeckEdit.UI
             {
                 new FilterViewModel("YAML Deck", "YAML Deck format", new WildcardMatcher("*.yaml") | new WildcardMatcher("*.yml"), true),
                 new FilterViewModel("JSON Deck", "JSON Deck format", new WildcardMatcher("*.json")),
-                new FilterViewModel("XML Deck", "XML Deck format", new WildcardMatcher("*.xml")),
                 new FilterViewModel("DEC Deck", "DEC Deck format", new WildcardMatcher("*.dec")),
                 new FilterViewModel("TXT Deck", "TXT Deck format", new WildcardMatcher("*.txt")),
+                new FilterViewModel("COD Deck", "Cockatrice Deck format", new WildcardMatcher("*.cod")),
             }
         };
         public string SaveDeck()
@@ -151,9 +151,9 @@ namespace Gathering_the_Magic.DeckEdit.UI
                 if (saveFileDialog.SelectedFilter.Name == "*" && !result.ToLower().EndsWithAny(".yaml", ".yml")) result += ".yaml";
                 if (saveFileDialog.SelectedFilter.Name == "YAML Deck" && !result.ToLower().EndsWithAny(".yaml", ".yml")) result += ".yaml";
                 if (saveFileDialog.SelectedFilter.Name == "JSON Deck" && !result.ToLower().EndsWithAny(".json")) result += ".json";
-                if (saveFileDialog.SelectedFilter.Name == "XML Deck" && !result.ToLower().EndsWithAny(".xml")) result += ".xml";
                 if (saveFileDialog.SelectedFilter.Name == "DEC Deck" && !result.ToLower().EndsWithAny(".dec")) result += ".dec";
                 if (saveFileDialog.SelectedFilter.Name == "TXT Deck" && !result.ToLower().EndsWithAny(".txt")) result += ".txt";
+                if (saveFileDialog.SelectedFilter.Name == "COD Deck" && !result.ToLower().EndsWithAny(".cod")) result += ".cod";
             }
             webView.Visibility = Visibility.Visible;
 
@@ -165,9 +165,9 @@ namespace Gathering_the_Magic.DeckEdit.UI
             Filters = {
                 new FilterViewModel("YAML Deck", "YAML Deck format", new WildcardMatcher("*.yaml") | new WildcardMatcher("*.yml"), true),
                 new FilterViewModel("JSON Deck", "JSON Deck format", new WildcardMatcher("*.json")),
-                new FilterViewModel("XML Deck", "XML Deck format", new WildcardMatcher("*.xml")),
                 new FilterViewModel("DEC Deck", "DEC Deck format", new WildcardMatcher("*.dec")),
                 new FilterViewModel("TXT Deck", "TXT Deck format", new WildcardMatcher("*.txt")),
+                new FilterViewModel("COD Deck", "Cockatrice Deck format", new WildcardMatcher("*.cod")),
             },
         };
         public string LoadDeck()

@@ -63,13 +63,13 @@ namespace Gathering_the_Magic.DeckEdit.Data
         {
             filePath = _filePath;
             Name = Path.GetFileNameWithoutExtension(filePath);
-            Type = Path.GetExtension(filePath).TrimStart(".");
+            Extension = Path.GetExtension(filePath).TrimStart(".");
             Exists = File.Exists(filePath);
         }
 
         private string filePath;
         public string Name { get; private set; }
-        public string Type { get; private set; }
+        public string Extension { get; private set; }
         public bool Exists { get; private set; }
 
         public void Save(string _text)
@@ -86,13 +86,13 @@ namespace Gathering_the_Magic.DeckEdit.Data
         {
             filePath = _filePath;
             Name = Path.GetFileNameWithoutExtension(filePath);
-            Type = Path.GetExtension(filePath).TrimStart(".").ToLower();
+            Extension = Path.GetExtension(filePath).TrimStart(".").ToLower();
             LastModified = File.GetInfo(filePath).LastWriteTimeUtc.ToString("o");
         }
 
         private string filePath;
         public string Name { get; private set; }
-        public string Type { get; private set; }
+        public string Extension { get; private set; }
         public string LastModified { get; private set; }
 
         public string Load()
